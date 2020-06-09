@@ -31,7 +31,10 @@
 
 - html_title(@query.new_record? ? l(:label_issue_plural) : @query.name)
 
-= form_tag(tree_index_project_issues_trees_path(project_id: @project), id: "query_form", class: "issues-tree-index-form", data: @tree_data) do
+= form_tag(tree_index_project_issues_trees_path(project_id: @project), 
+           method: :get,
+           id:     "query_form", 
+           class:  "issues-tree-index-form", data: @tree_data) do
   = render(partial: "issues_trees/query_form")
 
 - if @query.valid?
